@@ -18,7 +18,7 @@ function renderWishes(){const list=$('#saved-wishes');list.replaceChildren();$('
 $$('.tilek_kaldir,[data-wishes-compose]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();$('#w8-wish-name').value=data.rsvp?.name||'';openModal('#tilekengiz')}));
 $('#tilekengiz .zayotrp2').addEventListener('click',()=>{const name=$('#w8-wish-name').value.trim(),text=$('#w8-wish-text').value.trim();$('#tilekengiz .namekate').textContent=name?'':'Есіміңізді жазыңыз.';$('#tilekengiz .tilekkate').textContent=text?'':'Ізгі тілегіңізді жазыңыз.';if(!name){$('#w8-wish-name').focus();return}if(!text){$('#w8-wish-text').focus();return}data.wishes.unshift({name,text});if(!save()){data.wishes.shift();$('#tilekengiz .tilekkate').textContent='Браузер деректерді сақтауға рұқсат бермеді.';return}renderWishes();$('#w8-wish-text').value='';openModal('#sattitilek')});
 $$('a[href="#all-wishes"]').forEach(a=>a.addEventListener('click',()=>closeModal()));
-window.audio=new Audio('assets/1701928841.mp3');audio.loop=true;audio.preload='none';
+window.audio=new Audio('1701928841.mp3');audio.loop=true;audio.preload='none';
 const on=$('.sound-on'),off=$('.sound-off');
 function audioState(){on.style.display=audio.paused?'block':'none';off.style.display=audio.paused?'none':'block';$('.w8-music-shortcut').setAttribute('aria-pressed',String(!audio.paused))}
 on.addEventListener('click',async()=>{try{await audio.play();audioState()}catch{on.textContent='Әуен ашылмады · қайта көру'}});off.addEventListener('click',()=>{audio.pause();audioState()});audio.addEventListener('pause',audioState);audio.addEventListener('play',audioState);
